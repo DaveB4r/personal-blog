@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { CategoriesList } from "../../interfaces/CategoriesData";
+import { CategoriesList } from "@/interfaces/CategoriesData";
 import Link from "next/link";
 
 const CardCategories = () => {

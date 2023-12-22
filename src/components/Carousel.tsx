@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
-import { Posts } from "../../interfaces/PostsInterface";
+import { Posts } from "@/interfaces/PostsInterface";
 import { Card, CardHeader, CardFooter, Image, Button } from '@nextui-org/react';
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 

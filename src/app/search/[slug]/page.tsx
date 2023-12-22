@@ -5,9 +5,8 @@ import LoadMore from "@/components/LoadMore";
 const Page = async({params}: {params: {slug:string}}) => {
   const posts = await FetchPosts("0,2",null,params.slug);
   return (
-    <div className="max-w-[1000px] flex flex-col justify-self-end">
+    <div className="w-[80%] flex flex-col lg:justify-self-end md:justify-self-center">
       <CardPost posts={posts?.posts}/>
-      <LoadMore />
     </div>
   )
 }

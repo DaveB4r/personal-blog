@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import { FC } from "react";
-import { Posts } from "../../interfaces/PostsInterface";
+import { Posts } from "@/interfaces/PostsInterface";
 import { Card, CardHeader, CardFooter, Image, Button } from "@nextui-org/react";
 import AddFavorite from "./AddFavorite";
-import { useAuthContext } from "../../contexts/page";
+import { useAuthContext } from "@/contexts/page";
 
 const CardPost: FC<Posts> = ({ posts }) => {
   const { user } = useAuthContext();

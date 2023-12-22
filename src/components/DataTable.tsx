@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
-import { DataTableInterface } from "../../interfaces/DataTableProps";
+import { DataTableInterface } from "@/interfaces/DataTableProps";
 import {
   Image,
   Table,

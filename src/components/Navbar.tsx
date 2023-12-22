@@ -19,7 +19,7 @@ import {
   User,
 } from "@nextui-org/react";
 import Image from "next/image";
-import { useAuthContext } from "../../contexts/page";
+import { useAuthContext } from "@/contexts/page";
 import { usePathname } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import { FaSearch } from "react-icons/fa";

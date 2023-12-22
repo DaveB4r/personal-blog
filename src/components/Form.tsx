@@ -1,11 +1,11 @@
 "use client";
 import { FC, useEffect } from "react";
-import { FormProps } from "../../interfaces/FormInterface";
+import { FormProps } from "@/interfaces/FormInterface";
 import { Input, Button } from "@nextui-org/react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
-import { useAuthContext } from "../../contexts/page";
+import { useAuthContext } from "@/contexts/page";
 
 const Form: FC<FormProps> = ({ formControl, handleSubmit }) => {
   const router = useRouter();

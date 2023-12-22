@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect, FC } from 'react';
-import { PostType } from '../../interfaces/PostsInterface';
+import { PostType } from '@/interfaces/PostsInterface';
 import { useInView } from 'react-intersection-observer';
 import { Spinner } from '@nextui-org/react';
-import { FetchPosts } from '../actions/Fetchposts';
+import { FetchPosts } from '@/actions/Fetchposts';
 import CardPost from './CardPost';
 
 type Props = {

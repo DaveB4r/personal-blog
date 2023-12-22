@@ -33,8 +33,8 @@ const modules = {
     matchVisual: false,
   },
 };
-import { useAuthContext } from "../../contexts/page";
-import { PostType } from "../../interfaces/PostsInterface";
+import { useAuthContext } from "@/contexts/page";
+import { PostType } from "@/interfaces/PostsInterface";
 type QuillParams = {
   post?: PostType;
 };

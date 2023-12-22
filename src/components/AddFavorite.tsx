@@ -1,7 +1,7 @@
 "use client";
 import { FC, useState } from 'react'
 import { FaStar } from "react-icons/fa6";
-import { useAuthContext } from '../../contexts/page';
+import { useAuthContext } from '@/contexts/page';
 
 type Props = {
   id: number;
