@@ -1,4 +1,4 @@
-import { PostType } from "../../interfaces/PostsInterface";
+import { PostType } from "@/interfaces/PostsInterface";
 export async function FetchPosts(limit: string, category?: string, search?: string) {
   let apiUrl = `http://localhost:3000/api/posts?limit=${limit}`;
   if(category) apiUrl += `&category=${category}`;

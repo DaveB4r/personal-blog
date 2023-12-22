@@ -1,7 +1,7 @@
-import { FetchPosts } from "../../actions/Fetchposts";
-import CardPost from "../../components/CardPost";
-import Carousel from "../../components/Carousel";
-import LoadMore from "../../components/LoadMore";
+import { FetchPosts } from "@/actions/Fetchposts";
+import CardPost from "@/components/CardPost";
+import Carousel from "@/components/Carousel";
+import LoadMore from "@/components/LoadMore";
 
 const Page = async () => {
   const posts = await FetchPosts("0,3");

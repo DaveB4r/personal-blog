@@ -2,11 +2,11 @@
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import { NextUIProvider } from "@nextui-org/react";
-import MyNavBar from "./../components/Navbar";
-import AuthContextProvider from "../../contexts/page";
-import Footer from "./../components/Footer";
-import Aside from './../components/Aside';
-import { CategoryElement } from "../components/Categories";
+import MyNavBar from "@/components/Navbar";
+import AuthContextProvider from "@/contexts/page";
+import Footer from "@/components/Footer";
+import Aside from '@/components/Aside';
+import { CategoryElement } from "@/components/Categories";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (

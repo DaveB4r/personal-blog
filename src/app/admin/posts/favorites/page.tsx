@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Posts } from "../../../../../interfaces/PostsInterface";
-import { useAuthContext } from "../../../../../contexts/page";
-import CardPost from "../../../../components/CardPost";
+import { Posts } from "@/interfaces/PostsInterface";
+import { useAuthContext } from "@/contexts/page";
+import CardPost from "@/components/CardPost";
 
 const Page = () => {
   const { user } = useAuthContext();

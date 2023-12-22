@@ -1,4 +1,4 @@
-import pool from "../../../database/db";
+import pool from "@/database/db";
 import type { NextApiRequest } from "next";
 import { NextResponse  } from "next/server";
 

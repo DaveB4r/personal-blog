@@ -1,4 +1,4 @@
-import pool from "../../../database/db";
+import pool from "@/database/db";
 import { writeFile } from "fs/promises";
 import path from "path";
 import { NextResponse } from "next/server";

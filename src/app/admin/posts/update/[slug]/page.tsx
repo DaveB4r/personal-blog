@@ -1,7 +1,7 @@
 "use client";
 import {useEffect, useState} from 'react';
-import { PostType } from '../../../../../../interfaces/PostsInterface';
-import QuillForm from '../../../../../components/QuillForm';
+import { PostType } from '@/interfaces/PostsInterface';
+import QuillForm from '@/components/QuillForm';
 
 export default function Page({params}: {params: {slug: string}}) {
   const [post, setPost] = useState<PostType>();

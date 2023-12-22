@@ -8,10 +8,10 @@ import {
   CardFooter,
   Divider,
 } from "@nextui-org/react";
-import { FormControl } from "../../../interfaces/FormInterface";
-import Form from "../../components/Form";
+import { FormControl } from "@/interfaces/FormInterface";
+import Form from "@/components/Form";
 import { toast, ToastContainer } from "react-toastify";
-import { useAuthContext } from "../../../contexts/page";
+import { useAuthContext } from "@/contexts/page";
 
 const Page: FC = () => {
   const router = useRouter();

@@ -1,11 +1,11 @@
 "use client";
 import { useRouter } from 'next/navigation';
 import { FC, useState, useCallback, FormEvent } from 'react';
-import { FormControl } from '../../../interfaces/FormInterface';
+import { FormControl } from '@/interfaces/FormInterface';
 import { Card, CardHeader, Divider, CardBody,CardFooter } from '@nextui-org/react';
-import Form from './../../components/Form';
+import Form from '@/components/Form';
 import { toast, ToastContainer } from 'react-toastify';
-import { useAuthContext } from '../../../contexts/page';
+import { useAuthContext } from '@/contexts/page';
 
 const Page:FC = () => {
   const router = useRouter();

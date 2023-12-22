@@ -1,6 +1,6 @@
 "use client"
-import CardCategories from './../components/CardCategories';
-import GoogleAccount from './../components/GoogleAccount';
+import CardCategories from '@/components/CardCategories';
+import GoogleAccount from '@/components/GoogleAccount';
 import { Button } from '@nextui-org/react';
 import { SiBuymeacoffee } from "react-icons/si";
 import Link from 'next/link';

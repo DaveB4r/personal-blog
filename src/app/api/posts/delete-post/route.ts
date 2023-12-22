@@ -1,4 +1,4 @@
-import pool from "../../../../database/db";
+import pool from "@/database/db";
 import { unlink } from "fs";
 import { NextResponse } from "next/server";
 import path from "path";

@@ -3,8 +3,8 @@ import { useEffect, useState} from 'react';
 import Link from 'next/link';
 import { Button } from '@nextui-org/react';
 import { BiAddToQueue } from 'react-icons/bi/index';
-import { useAuthContext } from '../../../contexts/page';
-import DataTable from './../../components/DataTable';
+import { useAuthContext } from '@/contexts/page';
+import DataTable from '@/components/DataTable';
 const Page = () => {
   const { user } = useAuthContext();
   const headerData = ["id","image","title","category","date","actions"];

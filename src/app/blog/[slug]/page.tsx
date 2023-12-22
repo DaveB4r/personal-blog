@@ -1,7 +1,7 @@
 "use client";
 import { Card, CardHeader, CardBody, Divider, Image } from "@nextui-org/react";
 import { useEffect, useState } from "react";
-import { PostType } from "../../../../interfaces/PostsInterface";
+import { PostType } from "@/interfaces/PostsInterface";
 
 export default function Page({ params }: { params: { slug: string } }) {
   const [post, setPost] = useState<PostType>();

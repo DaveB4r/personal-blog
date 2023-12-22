@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/public/*": ["./public/*"],
+      "@/contexts/*": ["./contexts/*"],
+      "@/interfaces/*": ["./interfaces/*"]
+    },
     "lib": [
       "dom",
       "dom.iterable",
