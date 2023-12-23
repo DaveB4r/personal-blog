@@ -1,7 +1,7 @@
 import pool from "@/database/db";
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request){
+export async function GET(req: Request): Promise<NextResponse>{
   try {
     const connection = await pool.getConnection();
     const {searchParams} = new URL (req.url);
