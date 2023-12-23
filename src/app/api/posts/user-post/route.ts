@@ -1,8 +1,7 @@
 import pool from "@/database/db";
-import type { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: Request) {
   try {
     const connection = await pool.getConnection();
     const { searchParams } = new URL(req.url);
