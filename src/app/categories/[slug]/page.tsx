@@ -1,4 +1,4 @@
-import { FetchPosts } from "@/actions/Fetchposts";
+import { FetchPosts } from "@/app/actions/FetchPosts";
 import CardPost from "@/components/CardPost";
 import LoadMore from "@/components/LoadMore";
 
