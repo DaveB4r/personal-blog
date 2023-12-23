@@ -21,7 +21,7 @@ const Page = () => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setPreview(reader.result);
+      setPreview(reader.result as string);
     };
   };
   const handleSubmit = async (e: React.FormEvent) => {
