@@ -1,4 +1,4 @@
-import { PostType } from "@/interfaces/PostsInterface";
+import { Posts } from "@/interfaces/PostsInterface";
 export async function FetchPosts(limit: string, category?: string, search?: string) {
   let apiUrl = `http://localhost:3000/api/posts?limit=${limit}`;
   if(category) apiUrl += `&category=${category}`;
@@ -7,7 +7,7 @@ export async function FetchPosts(limit: string, category?: string, search?: stri
     const response = await fetch(apiUrl);
     if(response.ok){
       const data = await response.json();
-      return data as PostType[];
+      return data as Posts;
     }else{
       console.error("Error");
     }
