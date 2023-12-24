@@ -1,6 +1,6 @@
 import pool from "@/database/db";
-import { NextResponse } from "next/server";
 
+export const dynamic = 'force-dynamic';
 export async function GET(req: Request): Promise<Response> {
   try {
     const connection = await pool.getConnection();

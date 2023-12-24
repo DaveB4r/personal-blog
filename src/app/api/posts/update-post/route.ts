@@ -7,7 +7,7 @@ interface File {
   arrayBuffer: () => Promise<ArrayBuffer>;
   name: string;
 }
-
+export const dynamic = 'force-dynamic';
 export async function PUT(req: Request) {
   try {
     let query = "UPDATE posts SET ";

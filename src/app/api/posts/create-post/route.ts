@@ -8,6 +8,7 @@ interface File {
   name: string;
 }
 
+export const dynamic = 'force-dynamic';
 export async function POST(req: Request) {
   try {
     const connection = await pool.getConnection();

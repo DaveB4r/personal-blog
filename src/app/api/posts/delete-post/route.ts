@@ -3,6 +3,7 @@ import { unlink } from "fs";
 import { NextResponse } from "next/server";
 import path from "path";
 
+export const dynamic = 'force-dynamic';
 export async function DELETE(req: Request) {
   try {
     const connection = await pool.getConnection();

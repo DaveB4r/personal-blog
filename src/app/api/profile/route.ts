@@ -8,6 +8,7 @@ interface File {
   name: string;
 }
 
+export const dynamic = 'force-dynamic';
 export async function PUT(req: Request) {
   try {
     let response = {
