@@ -47,6 +47,6 @@ export const CategoriesList: CategoryInterface[] = [
   {
     title: "💻Windows",
     image: '/images/assets/categories/windows.jpg',
-    description: "✨Elevate your digitak experience with the latest in windows innovation! Stay connected, productive, and discover the limitless possibilities at your fingertips✨",
+    description: "✨Elevate your digital experience with the latest in windows innovation! Stay connected, productive, and discover the limitless possibilities at your fingertips✨",
   },
 ];

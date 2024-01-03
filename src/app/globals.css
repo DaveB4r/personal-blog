@@ -32,3 +32,37 @@ main{
 .bg-text{
   background: rgba(0,0,0, 0.3)
 }
+@media (max-width: 768px) {
+  .main-div{
+    justify-self: center;
+  }
+  .card-categories{
+    width: 150px !important;
+    height: 150px !important;
+  }
+  .main-section{
+    overflow-x: hidden;
+  }
+  .card-categories-div{
+    height: 110px;
+  }
+  .next-card-category{
+    --tw-translate-y: 82%;
+    --tw-translate-x: 173%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+  .prev-card-category{
+    --tw-translate-y: -12%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    --tw-translate-x: -177%;
+  }
+  .card-categories-text{
+    height: 150px;
+  }
+  .card-categories-text > h1{
+    font-size: 10px;
+  }
+  .card-categories-text > p {
+    font-size: 8px;
+  }
+}

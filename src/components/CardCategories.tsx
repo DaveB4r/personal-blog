@@ -27,7 +27,7 @@ const CardCategories = () => {
   }
   const positions= ["center", "left3", "left2", "left1", "left", "right", "right1", "right2", "right3"];
   return (
-    <div className="flex items-center flex-col justify-start h-[440px]">
+    <div className="flex items-center flex-col justify-start h-[440px] card-categories-div">
       {CategoriesList.map((category,i) => (
         <motion.div 
         key={i}
@@ -39,7 +39,7 @@ const CardCategories = () => {
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}
-        className="rounded-[12px] flex flex-col justify-end"
+        className="rounded-[12px] flex flex-col justify-end card-categories"
         initial="center"
         animate={positions[positionIndexes[i]]}
         variants={imageVariants}
@@ -48,7 +48,7 @@ const CardCategories = () => {
         onMouseLeave={() => setHidden(true)}
       >
         {positions[positionIndexes[i]] === 'center' && (
-          <div className={`text-white text-center shadow-text bg-text rounded-[12px] leading-10 ${hidden ? "hidden" : ""}`}>
+          <div className={`card-categories-text text-white text-center shadow-text bg-text rounded-[12px] leading-10 ${hidden ? "hidden" : ""}`}>
             <h1 className="text-2xl text-primary">{category.title}</h1>
             <p className="text-sm">{category.description}</p>
             <Link className="text-sm" href={`/categories/${encodeURIComponent(category.title.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, ''))}`}>
@@ -58,8 +58,8 @@ const CardCategories = () => {
         )}
       </motion.div>
       ))}
-      <div className="flex flex-row h-[786px] w-[46px] z-50 translate-x-[482%] cursor-pointer" onClick={() => handlePosition(1)}></div>
-      <div className="flex flex-row h-[786px] w-[46px] z-50 translate-x-[-482%] translate-y-[-100%] cursor-pointer" onClick={() => handlePosition(8)}></div>
+      <div className="flex flex-row h-[786px] w-[46px] z-50 translate-x-[482%] cursor-pointer next-card-category" onClick={() => handlePosition(1)}></div>
+      <div className="flex flex-row h-[786px] w-[46px] z-50 translate-x-[-482%] translate-y-[-100%] cursor-pointer prev-card-category" onClick={() => handlePosition(8)}></div>
     </div>
   )
 }
