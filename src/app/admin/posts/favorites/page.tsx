@@ -16,7 +16,7 @@ const Page = () => {
     fetchData();
   },[])
   return (
-    <div className="mr-6 flex flex-col justify-self-end">
+    <div className="md:mr-6 flex flex-col justify-self-end">
       <CardPost posts={posts?.posts}/>
     </div>
   )

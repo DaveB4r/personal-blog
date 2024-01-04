@@ -19,9 +19,9 @@ const Page = () => {
   },[bodyData, setBodyData]);
   
   return (
-    <div className="w-2/4 justify-self-center">
+    <div className="w-2/4 justify-self-center admin-div">
       <div className="grid">
-      <Button color="primary" variant='ghost' startContent={<BiAddToQueue />} className="justify-self-end">
+      <Button color="primary" variant='ghost' startContent={<BiAddToQueue />} className="justify-self-end create-button">
       <Link href="/admin/posts/create" className=" text-white">
          Create Post
       </Link>

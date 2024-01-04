@@ -65,4 +65,14 @@ main{
   .card-categories-text > p {
     font-size: 8px;
   }
+  .post-card{
+    width: 80%;
+  }
+  .admin-div{
+    width: 100%;
+  }
+  .create-button{
+    justify-self: end;
+    right: 45px;
+  }
 }

@@ -20,7 +20,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     day: "numeric",
   });
   return (
-    <div className="w-3/6 justify-self-center">
+    <div className="w-3/6 justify-self-center post-card">
       <Card>
         <Card className="w-full h-[300px] col-span-12 sm:col-span-7">
           <CardHeader className="absolute z-10 top-20 flex-col text-center">

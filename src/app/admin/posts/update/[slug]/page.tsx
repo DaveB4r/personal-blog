@@ -14,7 +14,7 @@ export default function Page({params}: {params: {slug: string}}) {
     fetchData();
   }, [post,setPost,params.slug])
   return (
-    <div className='w-2/6 justify-self-center'>
+    <div className='w-2/6 post-card justify-self-center'>
       <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">Editing Post</h3>
       <QuillForm post={post}/>
     </div>
