@@ -2,11 +2,12 @@
 import { FC, useState } from "react";
 import dynamic from "next/dynamic";
 import {
-  Input,
   Button,
+  CircularProgress,
+  Input,
+  Image,
   Select,
   SelectItem,
-  CircularProgress,
 } from "@nextui-org/react";
 import { toast, ToastContainer } from "react-toastify";
 import { CategoriesNames } from "./Categories";
@@ -45,6 +46,7 @@ const QuillForm: FC<QuillParams> = ({ post }) => {
   const [title, setTitle] = useState(post?.title);
   const [category, setCategory] = useState(post?.category);
   const [file, setFile] = useState<File>();
+  const [preview, setPreview] = useState(post?.image);
 
   const handleSubmit = async (e: React.FormEvent) => {
     try {
@@ -86,6 +88,18 @@ const QuillForm: FC<QuillParams> = ({ post }) => {
       console.error(e);
     }
   };
+  const handleChange = (e) => {
+    const file = e.target!.files![0]
+    setFile(file);
+    previewFile(file);
+  }
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreview(reader.result as string);
+    }
+  }
   return (
     <div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -106,8 +120,16 @@ const QuillForm: FC<QuillParams> = ({ post }) => {
             type="file"
             variant="bordered"
             className="w-full"
-            onChange={(e) => setFile(e.target!.files![0])}
+            onChange={handleChange}
           />
+          {preview && (
+            <Image
+              alt="image"
+              className="object-cover rounded-xl"
+              src={preview}
+              width={150}
+            />
+          )}
         </div>
         <div className="mb2 block">
           <Select
