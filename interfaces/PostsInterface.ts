@@ -10,6 +10,9 @@ export type PostType = {
   slug: string;
   username?: string;
   avatar?: string;
+  number_comments?: string | number;
+  comments: string;
+  comment_usernames: string;
 }
 
 export interface Posts {

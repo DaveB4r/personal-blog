@@ -16,12 +16,15 @@ export async function GET(req: Request) {
       slug: "",
       username: "",
       avatar: "",
+      number_comments: "",
+      comments: "",
+      comment_usernames: "",
     };
     const connection = await pool.getConnection();
     const { searchParams } = new URL(req.url);
     let slug = searchParams.get("slug");
     let id = searchParams.get("id");
-    let query = `SELECT posts.*, username, users.image as avatar FROM posts LEFT JOIN users on posts.user_id = users.id WHERE `;
+    let query = `SELECT posts.*, users.username, users.image as avatar, GROUP_CONCAT(comments.comment_text SEPARATOR '|-|') AS comments, COUNT(comments.id) AS number_comments, GROUP_CONCAT(comment_users.username SEPARATOR '|-|') AS comment_usernames FROM posts LEFT JOIN users ON posts.user_id = users.id LEFT JOIN comments ON posts.id = comments.post_id LEFT JOIN users AS comment_users ON comments.user_id = comment_users.id WHERE `;
     if (slug) {
       slug = slug.replace(/'/g, "\\'").replace(/"/g, '\\"');
       query += `slug='${slug}'`;
@@ -42,6 +45,9 @@ export async function GET(req: Request) {
       response.slug = post[0].slug;
       response.username = post[0].username;
       response.avatar = post[0].avatar;
+      response.number_comments = post[0].number_comments;
+      response.comments = post[0].comments;
+      response.comment_usernames = post[0].comment_usernames;
     }
     connection.release();
     return NextResponse.json(response);
