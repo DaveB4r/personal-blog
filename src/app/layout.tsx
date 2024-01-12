@@ -24,7 +24,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <NextUIProvider>
             <MyNavBar options={["home", "blog"]} />
             <main className=" w-screen my-1 ">
-              <section className="grid flex-wrap main-section">
+              <section className="grid main-section">
                 <Aside>
                   <CategoryElement />
                 </Aside>

@@ -65,7 +65,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           </CardBody>
           <Divider />
           <CardFooter>
-            <Comments post_id={post?.id} number_comments={post?.number_comments} comments={post?.comments} comment_usernames={post?.comment_usernames}/>
+            <Comments post_id={post?.id} number_comments={post?.number_comments} comments={post?.comments} comment_usernames={post?.comment_usernames} comment_date={post?.comment_date}/>
           </CardFooter>
         </Card>
       ) : (

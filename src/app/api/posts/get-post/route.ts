@@ -19,12 +19,13 @@ export async function GET(req: Request) {
       number_comments: "",
       comments: "",
       comment_usernames: "",
+      comment_date: "",
     };
     const connection = await pool.getConnection();
     const { searchParams } = new URL(req.url);
     let slug = searchParams.get("slug");
     let id = searchParams.get("id");
-    let query = `SELECT posts.*, users.username, users.image as avatar, GROUP_CONCAT(comments.comment_text SEPARATOR '|-|') AS comments, COUNT(comments.id) AS number_comments, GROUP_CONCAT(comment_users.username SEPARATOR '|-|') AS comment_usernames FROM posts LEFT JOIN users ON posts.user_id = users.id LEFT JOIN comments ON posts.id = comments.post_id LEFT JOIN users AS comment_users ON comments.user_id = comment_users.id WHERE `;
+    let query = `SELECT posts.*, users.username, users.image as avatar, GROUP_CONCAT(comments.comment_text SEPARATOR '|-|') AS comments, COUNT(comments.id) AS number_comments, GROUP_CONCAT(comment_users.username SEPARATOR '|-|') AS comment_usernames, GROUP_CONCAT(comments.comment_date SEPARATOR '|-|') AS comment_date FROM posts LEFT JOIN users ON posts.user_id = users.id LEFT JOIN comments ON posts.id = comments.post_id LEFT JOIN users AS comment_users ON comments.user_id = comment_users.id WHERE `;
     if (slug) {
       slug = slug.replace(/'/g, "\\'").replace(/"/g, '\\"');
       query += `slug='${slug}'`;
@@ -48,6 +49,7 @@ export async function GET(req: Request) {
       response.number_comments = post[0].number_comments;
       response.comments = post[0].comments;
       response.comment_usernames = post[0].comment_usernames;
+      response.comment_date = post[0].comment_date;
     }
     connection.release();
     return NextResponse.json(response);

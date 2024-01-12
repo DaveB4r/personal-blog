@@ -13,6 +13,7 @@ export type PostType = {
   number_comments?: string | number;
   comments: string;
   comment_usernames: string;
+  comment_date: string;
 }
 
 export interface Posts {
