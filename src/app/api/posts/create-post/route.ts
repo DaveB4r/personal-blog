@@ -1,33 +1,14 @@
 import pool from "@/database/db";
-import { writeFile } from "fs/promises";
-import path from "path";
 import { NextResponse } from "next/server";
+import { SaveImage } from "@/app/actions/SaveImage";
+import { FileInterface } from "@/interfaces/FileInterface";
 
-interface File {
-  arrayBuffer: () => Promise<ArrayBuffer>;
-  name: string;
-}
-const saveImage = async (file: File, title: string) => {
-  const imageName = String(title + path.extname(file.name)).replace(/'|"|\s/g, "_");
-  const bytes = await file!.arrayBuffer();
-  const buffer = Buffer.from(bytes);
-  const fileRoute = `/images/posts/${imageName}`;
-  const filePath = path.join(
-    process.cwd(),
-    "public",
-    "images",
-    "posts",
-    imageName
-  );
-  await writeFile(filePath, buffer);
-  return fileRoute;
-};
 export const dynamic = "force-dynamic";
 export async function POST(req: Request) {
   try {
     const connection = await pool.getConnection();
     const data = await req.formData();
-    let file: File | any;    
+    let file: FileInterface | any;
     const userId = data.get("user_id");
     let title = data.get("title");
     const category = data.get("category");
@@ -42,8 +23,8 @@ export async function POST(req: Request) {
     let message = "Post Already Exists";    
     // Save the image in public or in imgbb server
     if (process.env.NODE_ENV === "development") {
-      const fileToSave = data.get("file") as File;
-      file = await saveImage(fileToSave, title);
+      const fileToSave = data.get("file") as FileInterface;
+      file = await SaveImage(fileToSave, title);
     } else {
       file = data.get("file");
     }
