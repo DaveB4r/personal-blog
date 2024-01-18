@@ -11,7 +11,7 @@ type Props = {
 
 const AddFavorite:FC<Props> = ({id, user_id, selected}) => {
   const { setFavorites } = useAuthContext();
-  const [isSelected, setIsSelected] = useState(selected);
+  const [isSelected, setIsSelected] = useState(selected ? selected : false);
   const handleFavorite = () => {
     setIsSelected(!isSelected);
     sendRequest(id, user_id, !isSelected);

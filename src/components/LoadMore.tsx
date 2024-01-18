@@ -19,7 +19,6 @@ const LoadMore:FC<Props>  = ({category}) => {
   
   const loadMorePosts = async () => {
     const nextLimit = `${Number(limit.split(',')[0]) + 2}, 2`;
-    console.log(nextLimit)
     let response;
     if(category) response = await FetchPosts(nextLimit, category);
     else  response = await FetchPosts(nextLimit);
