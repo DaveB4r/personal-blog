@@ -51,6 +51,7 @@ const QuillForm: FC<QuillParams> = ({ post }) => {
   const submitImage = async () => {
     try {
       const imgbbKey = process.env.NEXT_PUBLIC_IMGBB_KEY;
+      console.log(imgbbKey);
       const form = new FormData();
       if(file){
         form.append("image",  file);
