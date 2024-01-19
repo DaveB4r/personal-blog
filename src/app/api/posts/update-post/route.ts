@@ -26,7 +26,7 @@ export async function PUT(req: Request) {
     // delete the image
     if (data.get("file") && process.env.NODE_ENV === 'development') {
       const [imageToDelete] = await connection.query(`SELECT image FROM posts WHERE id='${postId}'`);
-      if(String(imageToDelete[0]).includes('images')) await DeleteImage(String(imageToDelete[0]));
+      if(String(imageToDelete[0].image).includes('images')) await DeleteImage(String(imageToDelete[0].image));
     }
     // Save the new image in public or in imgbb server
     if(process.env.NODE_ENV === 'development') {

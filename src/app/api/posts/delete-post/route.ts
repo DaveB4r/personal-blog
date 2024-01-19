@@ -1,24 +1,17 @@
+import { DeleteImage } from "@/app/actions/DeleteImage";
 import pool from "@/database/db";
-import { unlink } from "fs";
 import { NextResponse } from "next/server";
-import path from "path";
 
 export const dynamic = 'force-dynamic';
 export async function DELETE(req: Request) {
   try {
     const connection = await pool.getConnection();
     const body = await req.json();
-    const [post] = await connection.query(
-      `SELECT image FROM posts WHERE id = '${body}'`
-    );
-    if(post[0].image.toString()){
-      await unlink(path.join(process.cwd(),'public', post[0].image), err => {
-        if(err){
-          console.error(err);
-          return
-        }
-        console.log('File deleted');
-      });
+    if(process.env.NODE_ENV === 'development'){
+      const [imageToDelete] = await connection.query(
+        `SELECT image FROM posts WHERE id = '${body}'`
+      );
+      if(String(imageToDelete[0].image).includes('images')) await DeleteImage(String(imageToDelete[0].image));
     }
     await connection.query(`DELETE FROM posts WHERE id = '${body}'`);
     connection.release();

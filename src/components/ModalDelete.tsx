@@ -33,7 +33,7 @@ const ModalDelete: FC<Props> = ({ id }) => {
           toast.success(res.message);
         }
       }
-      onClose();
+      return onClose();
     } catch (e) {
       console.error(e);
     }
