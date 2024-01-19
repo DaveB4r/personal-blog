@@ -7,7 +7,7 @@ export async function GET(req: Request) {
     const connection = await pool.getConnection();
     const { searchParams } = new URL(req.url);
     const user = searchParams.get("user");
-    let sqlQuery = `SELECT id, image, title, category, date FROM posts WHERE user_id = '${user}' ORDER BY id DESC`;
+    let sqlQuery = `SELECT id, image, title, slug, category, date FROM posts WHERE user_id = '${user}' ORDER BY id DESC`;
     const [rows] = await connection.query(sqlQuery);
     connection.release();
     return NextResponse.json({posts: rows});

@@ -10,6 +10,7 @@ import {
   TableRow,
   TableCell,
   Tooltip,
+  Link as LinkAnchor
 } from "@nextui-org/react";
 import { BsPencilSquare } from "react-icons/bs";
 import ModalDelete from "./ModalDelete";
@@ -34,7 +35,15 @@ const DataTable: FC<DataTableInterface> = ({ headerData, bodyData }) => {
                 src={body?.image ? body.image : "/images/posts/default.jpg"}
               />
             </TableCell>
-            <TableCell>{body?.title}</TableCell>
+            <TableCell>
+              <LinkAnchor
+                isExternal
+                href={`/blog/${encodeURIComponent(body?.slug)}`}
+                showAnchorIcon
+              >
+                {body?.title}
+              </LinkAnchor>
+            </TableCell>
             <TableCell>{body?.category}</TableCell>
             <TableCell>{body?.date.substring(0, 10)}</TableCell>
             <TableCell>
