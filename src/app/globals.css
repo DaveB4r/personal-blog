@@ -42,6 +42,7 @@ main{
   }
   .main-section{
     overflow-x: hidden;
+    padding-bottom: 100px;
   }
   .card-categories-div{
     height: 110px;
