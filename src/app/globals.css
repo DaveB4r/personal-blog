@@ -33,7 +33,7 @@ main{
   background: rgba(0,0,0, 0.3)
 }
 .more-posts{
-  padding: 300px 0;
+  padding: 100px 0;
 }
 @media (max-width: 768px) {
   .main-div{

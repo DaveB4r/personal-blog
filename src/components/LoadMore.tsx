@@ -19,26 +19,27 @@ const LoadMore:FC<Props>  = ({category, sqlLimit}) => {
   const {ref, inView} = useInView();
   
   const loadMorePosts = async () => {
-    const nextLimit = `${Number(limit.split(',')[0]) + 2}, 2`;
     let response;
-    if(category) response = await FetchPosts(nextLimit, category);
-    else  response = await FetchPosts(nextLimit);
+    if(category) response = await FetchPosts(limit, category);
+    else  response = await FetchPosts(limit);
     const newPosts = response?.posts ?? [];
     if(newPosts.length === 0) setEnd(true);
     setPosts((prevPosts: PostType[]) => [...prevPosts, ...newPosts]);
-    setLimit(nextLimit);
+    setLimit(limit => `${Number(limit.split(',')[0]) + 2},2`);
   };
 
   useEffect(() => {
     if(inView){
       loadMorePosts();
     }
-  },[inView]);
+  },[inView, end]);
 
   return (
     <>
       <CardPost posts={posts}/>
-      {!end && <div className='flex flex-col justify-self-end more-posts' ref={ref}><Spinner /></div>}
+      <div >
+        {!end && <div className='flex flex-col justify-self-end more-posts' ref={ref}><Spinner /></div>}
+      </div>
     </>
   )
 

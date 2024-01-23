@@ -32,7 +32,7 @@ const CardPost: FC<Posts> = ({ posts }) => {
                 src={post.image ? post.image : "/images/posts/default.jpg"}
               />
               <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-                <div className="flex flex-grow gap-2 items-center justify-between">
+                <div className="flex flex-grow gap-4 items-center justify-between">
                   <div>
                     <h4 className="text-tiny text-white/60 uppercase font-bold">
                       {post.title}
