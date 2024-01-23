@@ -13,7 +13,7 @@ type Props = {
 
 const LoadMore:FC<Props>  = ({category, sqlLimit}) => {
   const [posts, setPosts] = useState<PostType[]>([]);
-  const [limit, setLimit] = useState(sqlLimit ? sqlLimit : "3,2");
+  const [limit, setLimit] = useState(sqlLimit ? sqlLimit : "5,2");
   const [end, setEnd] = useState(false);
 
   const {ref, inView} = useInView();
