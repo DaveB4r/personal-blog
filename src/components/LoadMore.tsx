@@ -8,11 +8,12 @@ import CardPost from './CardPost';
 
 type Props = {
   category?: string;
+  sqlLimit?: string;
 }
 
-const LoadMore:FC<Props>  = ({category}) => {
+const LoadMore:FC<Props>  = ({category, sqlLimit}) => {
   const [posts, setPosts] = useState<PostType[]>([]);
-  const [limit, setLimit] = useState("3,2");
+  const [limit, setLimit] = useState(sqlLimit ? sqlLimit : "3,2");
   const [end, setEnd] = useState(false);
 
   const {ref, inView} = useInView();
@@ -37,7 +38,7 @@ const LoadMore:FC<Props>  = ({category}) => {
   return (
     <>
       <CardPost posts={posts}/>
-      {!end && <div className='flex flex-col justify-self-end' ref={ref}><Spinner /></div>}
+      {!end && <div className='flex flex-col justify-self-end more-posts' ref={ref}><Spinner /></div>}
     </>
   )
 

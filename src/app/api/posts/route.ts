@@ -13,7 +13,7 @@ export async function GET(req: Request){
     if(category) sqlQuery += ` AND category = '${category}'`;
     if(search) sqlQuery += ` AND ( title LIKE '%${search}%' OR category LIKE '%${search}%' OR content LIKE '%${search}%')`;
     sqlQuery += " ORDER BY id DESC"
-    if(limit) sqlQuery += ` LIMIT ${limit}`
+    if(limit) sqlQuery += ` LIMIT ${limit}`;
     const [rows] = await connection.query(sqlQuery);
     connection.release();
     return NextResponse.json({posts: rows})
