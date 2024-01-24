@@ -9,9 +9,10 @@ import CardPost from './CardPost';
 type Props = {
   category?: string;
   sqlLimit?: string;
+  noId?: string | number;
 }
 
-const LoadMore:FC<Props>  = ({category, sqlLimit}) => {
+const LoadMore:FC<Props>  = ({category, sqlLimit, noId}) => {
   const [posts, setPosts] = useState<PostType[]>([]);
   const [limit, setLimit] = useState(sqlLimit ? sqlLimit : "5,2");
   const [end, setEnd] = useState(false);
@@ -20,7 +21,8 @@ const LoadMore:FC<Props>  = ({category, sqlLimit}) => {
   
   const loadMorePosts = async () => {
     let response;
-    if(category) response = await FetchPosts(limit, category);
+    if(category && !noId) response = await FetchPosts(limit, category);
+    else if(category && noId) response = await FetchPosts(limit, category, null, noId);
     else  response = await FetchPosts(limit);
     const newPosts = response?.posts ?? [];
     if(newPosts.length === 0) setEnd(true);
