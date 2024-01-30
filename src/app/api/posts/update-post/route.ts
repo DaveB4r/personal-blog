@@ -39,7 +39,7 @@ export async function PUT(req: Request) {
       currentDate
     )}', content = '${content}', slug = '${slug}' `;
     
-    query += `, image = '${file}' `;
+    if(file) query += `, image = '${file}' `;
     query += `WHERE id='${postId}'`;
     await connection.query(query);
     connection.release();
