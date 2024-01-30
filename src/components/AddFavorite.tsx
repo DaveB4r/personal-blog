@@ -38,14 +38,15 @@ const AddFavorite:FC<Props> = ({id, user_id, selected}) => {
           console.log(res.favorites)
           setFavorites(res.favorites);
         }
-        console.log(res.message);
       }
     } catch (e) {
       console.error(e);
     }
   }
   return (
-    <FaStar className={`pl-2 text-2xl cursor-pointer ${isSelected ? "text-yellow-500 hover:text-white": "hover:text-yellow-500"}`} onClick={handleFavorite}/>
+    <div>
+      <FaStar className={`pl-2 text-2xl cursor-pointer ${isSelected ? "text-yellow-500 hover:text-white": "hover:text-yellow-500"}`} onClick={handleFavorite}/>
+    </div>
   )
 }
 

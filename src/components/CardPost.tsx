@@ -52,11 +52,10 @@ const CardPost: FC<Posts> = ({ posts }) => {
                     Watch More
                   </Link>
                 </Button>
-                <div>
+                
                 {user().isLogged && (
                   <AddFavorite id={post.id} user_id={Number(user().id)} selected={user().favorites.includes(String(post.id))} />
                 )}
-                </div>
               </CardFooter>
             </Card>
           </div>
