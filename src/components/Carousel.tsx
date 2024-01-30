@@ -38,8 +38,7 @@ const Carousel: FC<Posts> = ({ posts }) => {
   }, [posts, count])
   return (
     <div className=' h-[300px] grid grid-cols-12 justify-self-center mb-[10px]'>
-      {img !== '' ? (
-        <Card className="w-full col-span-12" isFooterBlurred>
+       <Card className="w-full col-span-12" isFooterBlurred>
           <CardHeader className="absolute z-10 top-1 flex-col items-start">
             <div className="shadow-text pl-2" dangerouslySetInnerHTML={{ __html: content }} />
           </CardHeader>
@@ -74,11 +73,6 @@ const Carousel: FC<Posts> = ({ posts }) => {
             </Link>
           </CardFooter>
         </Card>
-      ) : (
-        <div className="justify-self-center self-center">
-          <Spinner />
-        </div>
-      )}
     </div>
   )
 }

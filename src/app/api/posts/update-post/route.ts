@@ -31,7 +31,7 @@ export async function PUT(req: Request) {
     // Save the new image in public or in imgbb server
     if(process.env.NODE_ENV === 'development') {
       const fileToSave = data.get("file") as FileInterface;
-      file = await SaveImage(fileToSave, title);
+      if (fileToSave) file = await SaveImage(fileToSave, title);
     } else {
       file = data.get("file");
     }

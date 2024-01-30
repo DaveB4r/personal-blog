@@ -1,13 +1,22 @@
+"use client";
+import { useEffect, useState } from "react";
 import { FetchPosts } from "@/app/actions/FetchPosts";
 import CardPost from "@/components/CardPost";
 import Carousel from "@/components/Carousel";
 import LoadMore from "@/components/LoadMore";
 import { Spinner } from '@nextui-org/react';
 
-const Page = async () => {
-  const postsFetch = await FetchPosts("0,5");
-  const posts = postsFetch?.posts.slice(0,3);
-  const cardPosts = postsFetch?.posts.slice(3,5);
+const Page = () => {
+  const [posts, setPosts] = useState<any>();
+  const [cardPosts, setCardPosts] = useState<any>();
+  useEffect(() => {
+    const fetchData = async () => {
+      const postsFetch = await FetchPosts("0,5");
+      setPosts(postsFetch?.posts.slice(0,3));
+      setCardPosts(postsFetch?.posts.slice(3,5));
+    };
+    fetchData();
+  }, []);
   return (
     <>
       {posts ? (
